@@ -6,6 +6,6 @@ int main(int argc, char const *argv[])
     {
         printf("\x1B[38;5;%imHello World\n", i);
     }
-    
+       
     return 0;
 }

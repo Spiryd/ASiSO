@@ -1,0 +1,88 @@
+/ Prompt user to type in integers
+Clear
+Store result
+Input
+Store X
+Input
+Store Y
+
+/ check X 
+Load X
+Skipcond 000
+Jump nonnegx
+
+Subt X
+Subt X
+Store X
+Clear
+Add one
+Store negflag
+Clear
+Jump checky
+
+nonnegx, Clear
+         Store negflag
+         Load X
+         Skipcond 400
+         Jump checky / false
+         Jump halt / true
+ 
+/ Check Y
+checky, Load Y
+		Skipcond 000
+		Jump nonnegy
+        
+        Subt Y
+		Subt Y
+		Store Y
+        
+        Load negflag
+		Skipcond 800
+        Add one
+        Subt one
+        Store negflag
+
+        Jump loop
+
+nonnegy, Load Y
+         Skipcond 400
+         Jump loop / false
+         Halt  / if 0 stop
+         
+/do for loop
+do, Load X
+	Subt Y
+    Store X
+    Load result
+	Add one
+	Store result
+	Jump loop
+
+/ while loop
+loop,    Load X
+         Subt Y
+         Skipcond 000
+         Jump do
+
+Load negflag
+Skipcond 800
+Jump halt
+
+/ negate result
+Load result
+Subt result
+Subt result
+Store result
+
+/ Output result to user then halt program
+halt,    Load result
+         Output	
+         Load X
+         Output
+         Halt
+
+X, DEC 0
+Y, DEC 0
+one, DEC 1
+negflag, DEC 0
+result, DEC 0

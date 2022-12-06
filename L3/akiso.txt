@@ -1,0 +1,14 @@
+watch -n 0 cat /proc/meminfo
+cat /proc/cpuinfo
+cat /proc/partitions
+
+dd if=/dev/sda bs=521 count=1 | hexdump -C
+
+ps aux
+ps -ejH
+ps axjf
+ps uf
+ps -f
+
+jobs -l
+

@@ -4,6 +4,8 @@ cat /proc/partitions
 
 dd if=/dev/sda bs=521 count=1 | hexdump -C
 
+ps -eo pid,ppid,priority,nice,rss,pcpu
+
 ps aux
 ps -ejH
 ps axjf
